@@ -4,8 +4,10 @@ Pitchfork is a collection of proof-of-concept building scripts for building pacb
     echo PREFIX=/opt/mybuild > settings.mk
     make init
     make blasr                                 # if you want to build your own blasr
+    # to use the build,
     bash --init-file /opt/mybuild/setup-env.sh # either to use the build in the sub-shell
-    source /opt/mybuild/setup-env.sh           # or     to use the build in current shell 
+    # or
+    source /opt/mybuild/setup-env.sh           # to use the build in current shell 
 
 Overrides go in `.git/settings.mk` (symlinked via `./settings.mk`).
 
