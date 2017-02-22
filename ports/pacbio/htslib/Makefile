@@ -4,7 +4,7 @@ include ../../../mk/pitchfork.mk
 _NAME             = htslib
 $(_NAME)_REPO    ?= git://github.com/PacificBiosciences/$(_NAME)
 _WRKSRC           = $(WORKDIR)/$(_NAME)
-$(_NAME)_VERSION ?= ea846607f3ca7f49b3fb43df76f572d3f47cc6bb
+#$(_NAME)_VERSION ?= ea846607f3ca7f49b3fb43df76f572d3f47cc6bb
 _REVISION         = $(shell cd $(_WRKSRC) && $(GIT) rev-parse --short $($(_NAME)_VERSION) || true)
 ifneq ($(OPSYS),Darwin)
 LDFLAGS += -Wl,-rpath,'\$$\$$ORIGIN/../lib'
@@ -24,7 +24,7 @@ endif
 do-build:
 	$(MAKE) -C $(_WRKSRC) \
                    CC=$(CC) \
-            ZLIB_ROOT=$(ZLIB_ROOT) \
+            ZLIB_ROOT="$(ZLIB_ROOT)" \
                CFLAGS="$(CFLAGS) -Wall -O2 -Wno-unused-function" \
               LDFLAGS="$(LDFLAGS)" \
       PACKAGE_VERSION="1.1" \
