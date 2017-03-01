@@ -28,6 +28,8 @@ do-distclean:
 	cd $(_WRKSRC) && $(GIT) clean -xdf
 do-flush:
 	rm -rf $(_WRKSRC)
-do-test:
+do-test: do-unit-test do-cram-test
+do-unit-test:
 	nosetests --verbose --with-xunit --xunit-file=pbtranscript_nose.xml $(_WRKSRC)/tests/unit/*.py || true
+do-cram-test:
 	run_cram_unit.py -x pbtranscript_cram.xml $(_WRKSRC)/tests/cram || true
