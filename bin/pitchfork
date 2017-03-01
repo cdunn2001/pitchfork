@@ -284,7 +284,11 @@ def pitchfork(args):
                     _out, _exit, _err = backticks('rm -f ./%s' % os.path.basename(_prefetch))
                     _out, _exit, _err = backticks('ln -sfn %s ./' % _prefetch)
                     _out, _exit, _err = backticks('grep %s MD5SUM | md5sum -c -' % os.path.basename(_prefetch))
-                    return
+                    if not _exit == 0:
+                        _out, _exit, _err = backticks('rm -f %s %s') % (_archive, _distfiles)
+                        log('[WARNING] problem with the md5 checksum in the cache')
+                    else:
+                        return
                 except:
                     if os.path.exists(_prefetch):
                         os.remove(_prefetch)
@@ -304,6 +308,9 @@ def pitchfork(args):
                 _fetch = 'wget'
             _out, _exit, _err = backticks('%s %s' % (_fetch, _url))
             _out, _exit, _err = backticks('grep %s MD5SUM | md5sum -c -' % os.path.basename(_prefetch))
+            if not _exit == 0:
+                _out, _exit, _err = backticks('rm -f %s %s') % (_archive, _distfiles)
+                raise Exception('[ERROR] problem with the md5 checksum')
             _out, _exit, _err = backticks('cp %s %s/%s' % (_archive, _distfiles, _prjname))
             return
 
