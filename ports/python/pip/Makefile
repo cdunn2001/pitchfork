@@ -14,7 +14,7 @@ $(_FILE):
 do-install: | $(PREFIX)/var/pkg/$(_NAME)
 $(PREFIX)/var/pkg/$(_NAME):
 	$(PREFIX)/bin/python $(_FILE) --no-setuptools
-	$(PIP) install setuptools==33.1.1
+	$(PIP_INSTALL) setuptools==33.1.1
 	cd $(PREFIX) && \
         find bin/easy_install* \
              bin/pip* \
