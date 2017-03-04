@@ -234,7 +234,7 @@ python:
 else
 python:
 	# No do-clean rule here.
-	$(MAKE) -j1 -C ports/python/virtualenv do-install
+	#$(MAKE) -j1 -C ports/python/virtualenv do-install
 endif
 pip:
 	$(MAKE) -j1 -C ports/python/$@ ${RULE}
