@@ -148,7 +148,7 @@ pbtranscript:     scipy networkx pysam pbcore pbcommand pbcoretools pbdagcon hmm
 pbccs:            unanimity
 unanimity:        boost swig cmake htslib pbbam seqan pbcopper numpy
 pbcopper:         cmake boost zlib
-pbsv:             ngmlr pysam libbzip2
+pbsv:             ngmlr pysam libbzip2 pbcore
 pblaa:            htslib pbbam seqan unanimity
 #
 ppa:               boost cmake pbbam htslib
