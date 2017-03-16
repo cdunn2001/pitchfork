@@ -10,7 +10,7 @@ _CONFIGURE_ARGS += --enable-unicode=ucs4
 _CONFIGURE_ARGS += --enable-shared
 _CFLAGS          = $(CFLAGS)
 _CFLAGS         += -I$(PREFIX)/include/ncurses
-_LDFLAGS         = -L$(PREFIX)/lib
+_LDFLAGS         = -L$(PREFIX)/lib -Wl,-rpath,'\$$\$$ORIGIN/../lib'
 
 # Local works
 do-fetch: $(_FILE)
