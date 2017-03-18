@@ -29,6 +29,12 @@ PIP_CACHE  ?= $(PFHOME)/.git/pip
 DISTFILES  ?= $(PFHOME)/distfiles
 CCACHE_BASEDIR := $(PFHOME)
 
+ifeq ($(origin HAVE_PYTHON),undefined)
+PIP         = $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
+else
+PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
+endif
+
 ifeq ($(shell test -x "$(HAVE_CMAKE)" && echo -n yes || true),yes)
 CMAKE = $(HAVE_CMAKE)
 endif
@@ -60,12 +66,6 @@ CFLAGS    += -fPIC -I$(PREFIX)/include
 LDFLAGS   += -L$(PREFIX)/lib -L$(PREFIX)/lib64
 endif
 CXXFLAGS  += $(CFLAGS)
-
-ifeq ($(origin HAVE_PYTHON),undefined)
-PIP         = $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
-else
-PIP         = LDSHARED="$(CC) -shared $(LDFLAGS)" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
-endif
 
 BOOST_ROOT = $(PREFIX)
 HDF5_ROOT  = $(PREFIX)
