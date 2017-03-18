@@ -8,7 +8,7 @@ _WRKSRC = $(WORKDIR)/$(_NAME)
 _tmpvar:=$(if $(shell which pkg-config),exists,$(error "unable to run pkg-config, consider doing yum install pkgconfig"))
 #export PKG_CONFIG_PATH=$(PREFIX)/lib/pkgconfig
 _tmpvar:=$(if $(shell which freetype-config),exists,$(error "unable to run freetype-config, consider doing yum install freetype-devel"))
-LDFLAGS := $(LDFLAGS) $(shell freetype-config --libs)
+LDFLAGS := $(LDFLAGS) $(shell freetype-config --libs|sed -e 's@ -lpng[0-9]*@@')
 export LDFLAGS
 
 # Local works
