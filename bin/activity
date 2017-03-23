@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+case $- in
+  *i*)    # interactive shell
+    ;;
+  *)      # non-interactive shell
+    exit 0
+    ;;
+esac
 ncount=0
 while read LINE; do
     if [ "$DEBUG" ]; then
