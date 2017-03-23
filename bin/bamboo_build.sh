@@ -6,6 +6,8 @@ module load gcc/4.9.2
 module load graphviz/2.28.0
 module load ccache/3.2.3
 
+cd `dirname $0`/..
+
 cat > .settings.mk << EOF
 DISTFILE   = ${HOME}/.distfiles
 CCACHE_DIR = /mnt/secondary/Share/tmp/bamboo.mobs.ccachedir
