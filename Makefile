@@ -167,6 +167,8 @@ world: \
        reseq-core  pbfalcon  kineticsTools \
        isoseq-core ssw_lib   mash          \
        ipython     cram      nose
+third-party: \
+    sbt samtools h5py scipy ipython cram nose pysam biopython
 
 # rules
 ifeq ($(origin USE_CCACHE),undefined)
