@@ -64,7 +64,8 @@ $(_WRKSRC)/build/Makefile: | do-fetch
               -Dpbcopper_LIBRARIES=$(PREFIX)/lib/libpbcopper.a \
             ..
 endif
-do-build:
+do-build: $(_WRKSRC)/build/bam2fastq
+$(_WRKSRC)/build/bam2fastq: | do-config
 	$(MAKE) VERBOSE=1 -C $(_WRKSRC)/build
 do-install: $(PREFIX)/var/pkg/$(_NAME)
 $(PREFIX)/var/pkg/$(_NAME): | do-build
