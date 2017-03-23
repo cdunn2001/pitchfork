@@ -194,7 +194,7 @@ libpng:
 	$(MAKE) -C ports/thirdparty/$@ ${RULE}
 endif
 openblas:
-	$(MAKE) -j1 -C ports/thirdparty/$@ ${RULE}
+	$(MAKE) -C ports/thirdparty/$@ ${RULE}
 zlib:
 	$(MAKE) -C ports/thirdparty/$@ ${RULE}
 hdf5:
