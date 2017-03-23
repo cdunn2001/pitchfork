@@ -9,7 +9,7 @@ module load ccache/3.2.3
 cd `dirname $0`/..
 
 cat > settings.mk << EOF
-DISTFILES  = ${HOME}/.distfiles
+DISTFILES  = ${bamboo_build_working_director}/.distfiles
 CCACHE_DIR = /mnt/secondary/Share/tmp/bamboo.mobs.ccachedir
 EOF
 
