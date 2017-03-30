@@ -16,7 +16,7 @@ do-fetch: | $(_NAME).tar.gz
 $(_NAME).tar.gz:
 	$(PFHOME)/bin/pitchfork fetch --url $(_URL)/$@
 do-install: | $(PREFIX)/var/pkg/$(_NAME)
-$(PREFIX)/var/pkg/$(_NAME):
+$(PREFIX)/var/pkg/$(_NAME): | do-extract
 	rm -rf $(STAGING)/$(_NAME)
 	mkdir -p $(STAGING)/$(_NAME)
 	$(PIP) install --root $(STAGING)/$(_NAME) --no-deps $(_WRKSRC)/
