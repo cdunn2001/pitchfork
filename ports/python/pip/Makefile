@@ -2,7 +2,7 @@ include ../../../mk/pitchfork.mk
 
 # Local variables
 _NAME            = pip-8.1.2
-_URL             = https://raw.githubusercontent.com/pypa/pip
+_URL             = https://raw.githubusercontent.com/pypa/get-pip
 _REV             = 430ba37776ae2ad89f794c7a43b90dc23bac334c
 _WRKSRC          = $(WORKDIR)/$(_NAME)
 _FILE            = get-pip.py
