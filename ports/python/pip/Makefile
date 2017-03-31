@@ -12,7 +12,7 @@ do-fetch: | $(_FILE)
 $(_FILE):
 	$(PFHOME)/bin/pitchfork fetch --url $(_URL)/$(_REV)/contrib/$@
 do-install: | $(PREFIX)/var/pkg/$(_NAME)
-$(PREFIX)/var/pkg/$(_NAME):
+$(PREFIX)/var/pkg/$(_NAME): | do-fetch
 	$(PREFIX)/bin/python $(_FILE) --no-setuptools
 	$(PIP) install setuptools==33.1.1
 	cd $(PREFIX) && \
