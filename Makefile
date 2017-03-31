@@ -149,6 +149,7 @@ pbccs:            unanimity
 unanimity:        boost swig cmake htslib pbbam seqan pbcopper numpy
 pbcopper:         cmake boost zlib
 pbsv:             ngmlr pysam libbzip2 pbcore
+pbsvtools:        pbsv pbcommand pbcoretools
 pblaa:            htslib pbbam seqan unanimity
 #
 ppa:               boost cmake pbbam htslib
@@ -397,6 +398,8 @@ unanimity:
 pbcopper:
 	$(MAKE) -C ports/pacbio/$@ ${RULE}
 pbsv:
+	$(MAKE) -C ports/pacbio/$@ ${RULE}
+pbsvtools:
 	$(MAKE) -C ports/pacbio/$@ ${RULE}
 #
 pblaa:
