@@ -9,13 +9,13 @@ export LDFLAGS
 
 # Local works
 ifeq ($(origin HAVE_CYTHON),undefined)
-do-extract: | $(_WRKSRC)
-$(_WRKSRC):
+do-extract: $(_WRKSRC)
+$(_WRKSRC): | do-fetch
 	tar zxf $(_NAME).tar.gz -C $(WORKDIR)
 do-fetch: | $(_NAME).tar.gz
 $(_NAME).tar.gz:
 	$(PFHOME)/bin/pitchfork fetch --url $(_URL)/$@
-do-install: | $(PREFIX)/var/pkg/$(_NAME)
+do-install: $(PREFIX)/var/pkg/$(_NAME)
 $(PREFIX)/var/pkg/$(_NAME): | do-extract
 	rm -rf $(STAGING)/$(_NAME)
 	mkdir -p $(STAGING)/$(_NAME)
