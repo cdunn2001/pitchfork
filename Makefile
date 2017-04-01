@@ -164,6 +164,8 @@ reseq-core: \
        pbsmrtpipe pbalign blasr pbreports GenomicConsensus pbbam pbcoretools unanimity
 isoseq-core: \
        reseq-core pbtranscript trim_isoseq_polyA hmmer gmap biopython cram nose ipython
+pbsv-core: \
+       pbsv pbsvtoools nose
 world: \
        reseq-core  pbfalcon  kineticsTools \
        isoseq-core ssw_lib   mash          \
