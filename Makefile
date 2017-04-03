@@ -171,7 +171,7 @@ world: \
        isoseq-core ssw_lib   mash          \
        ipython     cram      nose
 third-party: \
-    samtools h5py scipy ipython cram nose pysam networkx ngmlr gmap boost jsonschema swig jinja2 pyparsing pydot xmlbuilder requests fabric matplotlib iso8601 tabulate pytz hmmer avro
+    samtools h5py scipy ipython cram nose pysam networkx ngmlr gmap boost jsonschema swig jinja2 pyparsing pydot xmlbuilder requests fabric matplotlib iso8601 tabulate pytz hmmer avro iso8601
 
 # rules
 ifeq ($(origin USE_CCACHE),undefined)
