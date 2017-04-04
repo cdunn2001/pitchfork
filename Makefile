@@ -171,7 +171,7 @@ world: \
        isoseq-core ssw_lib   mash          \
        ipython     cram      nose
 third-party: \
-    samtools h5py scipy ipython cram nose pysam networkx ngmlr gmap boost jsonschema swig jinja2 pyparsing pydot xmlbuilder requests fabric matplotlib iso8601 tabulate pytz hmmer avro iso8601
+    samtools h5py scipy ipython cram nose pysam networkx ngmlr gmap boost jsonschema swig jinja2 pyparsing pydot xmlbuilder requests fabric matplotlib iso8601 tabulate pytz hmmer avro
 
 # rules
 ifeq ($(origin USE_CCACHE),undefined)
@@ -493,4 +493,4 @@ pbbamr:
 pbcommandr:
 	$(MAKE) -C ports/pacbio/$@ ${RULE}
 
-.PHONY: ConsensusCore GenomicConsensus MarkupSafe appnope avro biopython blasr boost ccache cmake Cogent cram cycler cython dazzdb daligner damasker dextractor decorator default docopt ecdsa fabric gmap gmock gnureadline gtest hmmer htslib ipython isodate jsonschema kineticsTools libpng matplotlib modules ncurses networkx nim nose numpy openblas openssl paramiko pbalign pbbam unanimity pbchimera pbcommand pbcore pbcoretools pbdagcon pbfalcon pblaa pbreports pexpect pickleshare pip ppa ptyprocess pycrypto pydot pyparsing pypeFLOW pysam python pytz pyxb rdfextras rdflib readline requests samtools scipy seqan simplegeneric six swig tcl traitlets world xmlbuilder zlib pbh5tools tabulate pbbarcode
+.PHONY: ConsensusCore GenomicConsensus MarkupSafe appnope avro biopython blasr boost ccache cmake Cogent cram cycler cython dazzdb daligner damasker dextractor decorator default docopt ecdsa fabric gmap gmock gnureadline gtest hmmer htslib ipython isodate jsonschema kineticsTools libpng matplotlib modules ncurses networkx nim nose numpy openblas openssl paramiko pbalign pbbam unanimity pbchimera pbcommand pbcore pbcoretools pbdagcon pbfalcon pblaa pbreports pexpect pickleshare pip ppa ptyprocess pycrypto pydot pyparsing pypeFLOW pysam python pytz rdfextras rdflib readline requests samtools scipy seqan simplegeneric six swig tcl traitlets world xmlbuilder zlib pbh5tools tabulate pbbarcode
