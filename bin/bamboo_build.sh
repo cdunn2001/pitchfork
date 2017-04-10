@@ -13,6 +13,6 @@ DISTFILES  = ${PWD}/../.distfiles
 CCACHE_DIR = /mnt/secondary/Share/tmp/bamboo.mobs.ccachedir
 EOF
 
-make -j third-party hosted-thirdparty
+make -j third-party
 
 # vim: ft=sh
