@@ -26,6 +26,8 @@ STAGING    ?= $(PFHOME)/staging
 CCACHE_DIR ?= $(PFHOME)/.git/ccache
 SCCACHE_DIR?= $(PFHOME)/.git/sccache
 PIP_CACHE  ?= $(PFHOME)/.git/pip
+PIP_CACHE_DIR:=${PIP_CACHE}
+export PIP_CACHE_DIR
 DISTFILES  ?= $(PFHOME)/distfiles
 CCACHE_BASEDIR := $(PFHOME)
 
@@ -35,6 +37,7 @@ else
 PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
 endif
 PIP_INSTALL = $(PIP) install --user
+PIP_INSTALL = pip install --user
 
 ifeq ($(shell test -x "$(HAVE_CMAKE)" && echo -n yes || true),yes)
 CMAKE = $(HAVE_CMAKE)
