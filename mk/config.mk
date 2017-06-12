@@ -37,7 +37,7 @@ else
 PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
 endif
 PIP_INSTALL = $(PIP) install --user
-PIP_INSTALL = pip install --user
+PIP_INSTALL = ${PREFIX}/bin/pip install --user
 
 ifeq ($(shell test -x "$(HAVE_CMAKE)" && echo -n yes || true),yes)
 CMAKE = $(HAVE_CMAKE)

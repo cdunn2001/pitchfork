@@ -15,7 +15,7 @@ PREFIX ?= deployment
 
 default:
 	@echo "'make init' must occur before any other rule."
-	@echo "You can do that manually, or let it happen automatically as 'initialized.mk' is generated."
+	@echo "You can do that manually, or let it happen automatically as 'initialized.o' is generated."
 	@echo "CCACHE_DIR=${CCACHE_DIR}"
 	@echo "PREFIX=${PREFIX}"
 
