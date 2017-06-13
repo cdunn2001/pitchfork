@@ -26,18 +26,19 @@ STAGING    ?= $(PFHOME)/staging
 CCACHE_DIR ?= $(PFHOME)/.git/ccache
 SCCACHE_DIR?= $(PFHOME)/.git/sccache
 PIP_CACHE  ?= $(PFHOME)/.git/pip
-PIP_CACHE_DIR:=${PIP_CACHE}
-export PIP_CACHE_DIR
 DISTFILES  ?= $(PFHOME)/distfiles
 CCACHE_BASEDIR := $(PFHOME)
 
+PIP_CACHE_DIR?=${PIP_CACHE}
+export PIP_CACHE_DIR
+# With that, we do not actually need to pass --cache-dir, but it does not hurt.
+
 ifeq ($(origin HAVE_PYTHON),undefined)
-PIP         = $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
+PIP         = $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE_DIR)
 else
-PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE)
+PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE_DIR)
 endif
 PIP_INSTALL = $(PIP) install --user
-PIP_INSTALL = ${PREFIX}/bin/pip install --user
 
 ifeq ($(shell test -x "$(HAVE_CMAKE)" && echo -n yes || true),yes)
 CMAKE = $(HAVE_CMAKE)
