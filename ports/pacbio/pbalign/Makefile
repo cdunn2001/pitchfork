@@ -13,7 +13,7 @@ $(_WRKSRC):
 ifeq ($(wildcard $($(_NAME)_REPO)),)
 	$(GIT) clone $($(_NAME)_REPO) $@
 	cd $(_WRKSRC) && $(GIT) checkout $($(_NAME)_VERSION)
-DEVOPT = -e
+DEVOPT =
 else
 	ln -sfn $($(_NAME)_REPO) $(_WRKSRC)
 DEVOPT = -e
