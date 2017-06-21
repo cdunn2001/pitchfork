@@ -16,7 +16,7 @@ ifeq ($(wildcard $($(_NAME)_REPO)),)
 DEVOPT =
 else
 	ln -sfn $($(_NAME)_REPO) $(_WRKSRC)
-DEVOPT = -e
+#DEVOPT = -e
 endif
 do-install: $(PREFIX)/var/pkg/$(_NAME)
 $(PREFIX)/var/pkg/$(_NAME): | do-fetch

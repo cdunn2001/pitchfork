@@ -13,7 +13,7 @@ $(_FILE):
 	$(PFHOME)/bin/pitchfork fetch --url $(_URL)/$(_REV)/$@
 do-install: | $(PREFIX)/var/pkg/$(_NAME)
 $(PREFIX)/var/pkg/$(_NAME): | do-fetch
-	python $(_FILE) --user --no-setuptools
+	python $(_FILE) --user --no-setuptools --force-reinstall
 	$(PIP_INSTALL) setuptools==33.1.1
 	cd $(PREFIX) && \
         find bin/easy_install* \

@@ -38,7 +38,7 @@ PIP         = $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE_DIR)
 else
 PIP         = LDSHARED="$(CC) -shared" AR="$(shell $(CC) --print-prog-name=ar)" $(PREFIX)/bin/pip --cache-dir $(PIP_CACHE_DIR)
 endif
-PIP_INSTALL = $(PIP) --install-option="--executable=python2.7" install --user
+PIP_INSTALL = $(PIP) install -v --upgrade --user
 
 ifeq ($(shell test -x "$(HAVE_CMAKE)" && echo -n yes || true),yes)
 CMAKE = $(HAVE_CMAKE)
